@@ -6,7 +6,6 @@ import random
 import os
 import re
 
-
 def download(url, dir_name="files"):
     output = []
     title = "".join(i for i in url if i.isalpha())
