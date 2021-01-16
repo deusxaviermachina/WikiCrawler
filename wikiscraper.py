@@ -23,7 +23,6 @@ def download(url, dir_name="files"):
                 f.write(i+"\n"+"\n")
     return output
 
-
 def extract_citations(url):
     citations = []
     response = requests.get(url)
