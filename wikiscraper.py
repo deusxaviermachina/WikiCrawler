@@ -35,7 +35,6 @@ def extract_citations(url):
     for i in bs:
         for j in i:
             if len(j) > 1: citations.append(j)
-
     if not os.path.isdir("references"): os.mkdir("references")
     with open(f"references/{title}.txt", "w", encoding='utf-8') as fh:
         for i in sorted(citations):
