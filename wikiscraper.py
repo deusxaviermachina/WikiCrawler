@@ -6,7 +6,6 @@ import random
 import os
 import re
 
-
 def download(url, dir_name="files"):
     output = []
     title = "".join(i for i in url if i.isalpha())
@@ -24,7 +23,6 @@ def download(url, dir_name="files"):
                 f.write(i+"\n"+"\n")
     return output
 
-
 def extract_citations(url):
     citations = []
     response = requests.get(url)
@@ -37,7 +35,6 @@ def extract_citations(url):
     for i in bs:
         for j in i:
             if len(j) > 1: citations.append(j)
-
     if not os.path.isdir("references"): os.mkdir("references")
     with open(f"references/{title}.txt", "w", encoding='utf-8') as fh:
         for i in sorted(citations):
@@ -59,3 +56,8 @@ def main(url, count, crawl_depth):
 if __name__ == "__main__":
     url = "https://en.wikipedia.org/wiki/Brain"
     main(url, 0, 2)
+<<<<<<< HEAD
+=======
+    """
+    #extract_citations(url)
+>>>>>>> b789532c21a449dec41a91b10bc4beddc938bf7c
