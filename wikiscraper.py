@@ -33,8 +33,8 @@ def download(url, dir_name="files"):
     return output
     """
     I'll probably change this^ function later so that k is passed as an argument
-    and the regex-based filter condition is applied to the list construction rather 
-    than to the iteration through the list.
+    and the regex-based filter condition is included in the list construction rather 
+    than applied to the iteration through the list that follows.
     """
 
 def extract_citations(url):
