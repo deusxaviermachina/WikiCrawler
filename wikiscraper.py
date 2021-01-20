@@ -31,6 +31,11 @@ def download(url, dir_name="files"):
                 output.append(i)
                 f.write(i+"\n"+"\n")
     return output
+    """
+    I'll probably change this^ function later so that k is passed as an argument
+    and the regex-based filter condition is applied to the list construction rather 
+    than to the iteration through the list.
+    """
 
 def extract_citations(url):
     """
