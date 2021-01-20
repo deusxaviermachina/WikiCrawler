@@ -8,10 +8,13 @@ import re
 
 def download(url, dir_name="files"):
     """
-    crawls page located at root url, randomly generates k branch
-    articles from set of all links to external wiki articles. creates
-    a directory for the tree, creates a [root url].txt filel,
-    and writes the k urls of its branch nodes to this file
+    crawls page located at root url and extracts links (i.e. "branches") from page
+    randomly selects k of these branches
+    creates a directory for the tree
+    makes a [root url].txt file inside the directory 
+    iterates through the k urls of root's branch nodes
+    writes branch url to the [root url].txt file if it links to 
+    another wiki page
     """
     output = []
     title = "".join(i for i in url if i.isalpha())
@@ -28,6 +31,11 @@ def download(url, dir_name="files"):
                 output.append(i)
                 f.write(i+"\n"+"\n")
     return output
+    """
+    I'll probably change this^ function later so that k is passed as an argument
+    and the regex-based filter condition is included in the list construction rather 
+    than applied to the iteration through the list that follows.
+    """
 
 def extract_citations(url):
     """
