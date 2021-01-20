@@ -4,11 +4,10 @@ import os
 
 <<<<<<< HEAD
 """
-running 'wikiscraper.main' yields a directory containing
-a .txt file for each sub-tree. The filenames correspond to the root
-nodes of each sub-tree. So, each tree is a directory.
-Each sub-tree is a within that directory. Each filename is a root node.
-The urls contained within each file are branches of a sub-tree. 
+running 'wikiscraper.main' yields a [root node].txt file for each sub-tree.
+So, each tree is a directory. Each sub-tree is a file within that directory.
+The urls contained within each [root node] file are branches (which may themselves be
+roots to other sub-trees)
 """
 tree = os.listdir("files")
 
