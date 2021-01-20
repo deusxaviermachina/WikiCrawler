@@ -10,7 +10,7 @@ def download(url, dir_name="files"):
     """
     crawls page located at root url, randomly generates k branch
     articles from set of all links to external wiki articles. creates
-    a directory for the tree, creates a [root url].txt filel,
+    a directory for the tree, creates a [root url].txt file,
     and writes the k urls of its branch nodes to this file
     """
     output = []
