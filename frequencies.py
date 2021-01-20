@@ -23,7 +23,10 @@ for subtree_root in tree:
 
 """
 map nodes to frequencies and sort in ascending order of frequencies--strongly connected 
-nodes will rank higher than weakly connected nodes.
+nodes will rank higher than weakly connected nodes. The assumption is that articles that
+are linked back to with high frequencies will be highly topical, while lower frequency articles
+won't be.
+
 """
 data = {node.strip("\n"): nodes.count(node) for node in nodes}
 data = sorted(data.items(), key=lambda x:x[1], reverse=True)
