@@ -18,7 +18,7 @@ for subtree_root in tree:
         for subtree_branch in fh:
             if subtree_branch != "\n" and re.match(r"^http://wikipedia\.org//wiki/[\w0-9]+$",subtree_branch):
                 nodes.append(subtree_branch.split("wiki/")[1])
-                nodes.append(root_name)
+    nodes.append(root_name)
 
 
 """
