@@ -67,7 +67,8 @@ def pool(urls):
 
 def main(url, count, crawl_depth):
     """
-    recursively traverse k-ary tree of depth n
+    construct k-ary tree of depth n using
+    recursion and multiprocessing
     """
     links = download(url)
     if count > crawl_depth:
