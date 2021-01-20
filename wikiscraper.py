@@ -12,7 +12,9 @@ def download(url, dir_name="files"):
     randomly selects k of these branches
     creates a directory for the tree
     makes a [root url].txt file inside the directory 
-    writes the k urls of root's branch nodes to this file
+    iterates through the k urls of root's branch nodes to this file
+    writes branch url to the [root url].txt file if the branch url links to 
+    another wiki page
     """
     output = []
     title = "".join(i for i in url if i.isalpha())
