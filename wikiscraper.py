@@ -41,7 +41,6 @@ def extract_citations(url):
     if not os.path.isdir("references"): os.mkdir("references")
     with open(f"references/{title}.txt", "w", encoding='utf-8') as fh:
         for i in sorted(citations):
-            i=i.replace("&nbsp", "")
             if len(i) > 1: fh.write(i+"\n\n")
 
 def pool(urls):
@@ -57,10 +56,6 @@ def main(url, count, crawl_depth):
         p.start()
     pool(links)
 
-
 if __name__ == "__main__":
     url = "https://en.wikipedia.org/wiki/Brain"
-    """
     main(url, 0, 2)
-    """
-    #extract_citations(url)
