@@ -56,8 +56,3 @@ def main(url, count, crawl_depth):
 if __name__ == "__main__":
     url = "https://en.wikipedia.org/wiki/Brain"
     main(url, 0, 2)
-<<<<<<< HEAD
-=======
-    """
-    #extract_citations(url)
->>>>>>> b789532c21a449dec41a91b10bc4beddc938bf7c
