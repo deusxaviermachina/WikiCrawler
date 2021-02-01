@@ -95,6 +95,6 @@ class Graph:
         adjacency_matrix = pd.read_excel("adjacency_matrix.xlsx")
         return adjacency_matrix
 
-
-graph = Graph("files")
-graph.adjacency_matrix()
+if __name__ == "__main__":
+    graph = Graph("files")
+    graph.adjacency_matrix()
