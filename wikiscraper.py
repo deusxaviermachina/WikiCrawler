@@ -58,7 +58,7 @@ def extract_citations(url):
 
 def pool(urls):
     """
-    threading to speed up process
+    threading to improve performance
     """
     with concurrent.futures.ThreadPoolExecutor() as executor:
         executor.map(download, urls)
