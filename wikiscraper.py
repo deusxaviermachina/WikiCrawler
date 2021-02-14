@@ -47,9 +47,7 @@ def extract_citations(url):
     bs = BeautifulSoup(response.content, features="html.parser")
     title = bs.find(id="firstHeading").text
     bs = [i.text for i in bs.find_all("span", "reference-text")]
-    print(bs)
     bs = [str(i).split("^") for i in bs]
-    print(bs)
     for i in bs:
         for j in i:
             if len(j) > 1: citations.append(j)
