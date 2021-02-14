@@ -3,7 +3,6 @@ import re
 import openpyxl as xl
 import pandas as pd
 
-
 class Graph:
     """
     running 'wikiscraper.main' yields a [root node].txt file for each sub-tree.
@@ -25,8 +24,8 @@ class Graph:
         tree = self.tree
         nodes = []
         for subtree_root in tree:
-            root_name = subtree_root.split("orgwiki")[1][:-4]
-            with open(f"files/{subtree_root}", "rt") as fh:
+            root_name = subtree_root[:-4]
+            with open(f"{self.name}/{subtree_root}", "rt") as fh:
                 for subtree_branch in fh:
                     if subtree_branch != "\n" and re.match(
                             r"^http://wikipedia\.org//wiki/[\w0-9]+$",
@@ -45,8 +44,8 @@ class Graph:
         tree = self.tree
         nodes = []
         for subtree_root in tree:
-            root_name = subtree_root.split("orgwiki")[1][:-4]
-            with open(f"files/{subtree_root}", "rt") as fh:
+            root_name = subtree_root[:-4]
+            with open(f"{self.name}/{subtree_root}", "rt") as fh:
                 for subtree_branch in fh:
                     if subtree_branch != "\n" and re.match(r"^http://wikipedia\.org//wiki/[\w0-9]+$", subtree_branch):
                         nodes.append((root_name.strip(), subtree_branch.split("wiki/")[1].strip()))
@@ -58,20 +57,24 @@ class Graph:
         then output_degrees(A) will return 2,
         output_degrees(X) will return 1, etc.
         """
+        names = []
         nodes = self.edge_list()
         degrees = 0
         for (i, j) in nodes:
             if i == vertex:
                 degrees += 1
-        return degrees
+                names.append(j)
+        return degrees, names
 
     def input_degrees(self, vertex):
         nodes = self.edge_list()
+        names = []
         degrees = 0
         for (i, j) in nodes:
             if j == vertex:
                 degrees += 1
-        return degrees
+                names.append(i)
+        return degrees, names
 
     def adjacency_matrix(self):
         wb = xl.load_workbook("thisfile.xlsx")
@@ -97,4 +100,3 @@ class Graph:
 
 if __name__ == "__main__":
     graph = Graph("files")
-    graph.adjacency_matrix()
