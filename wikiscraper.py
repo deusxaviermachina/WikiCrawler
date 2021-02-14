@@ -17,7 +17,7 @@ def download(url, dir_name="files"):
     another wiki page
     """
     output = []
-    title = "".join(i for i in url if i.isalpha())
+    title = url.split("wiki/")[1]
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
     data = soup.find(id="bodyContent").find_all("a")
